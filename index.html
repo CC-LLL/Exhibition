@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+
+
+        .bg {
+            /* The image used */
+            background-image: url("assets/img/museumModernLook-02-NC.jpg");
+            /* Full height */
+            height: 100%;
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100% 100%; /*cover; */
+            /* background-attachment: fixed; */
+        }
+
+
+        .overlay-image {
+            position: absolute; /* Positions relative to the container */
+            top: 33.2%; /* 340/1024 */
+            left: 29.1%; /* 298/1024 */
+            height: 30.67%; /* (645-340)/1024 */
+            width: 41.8%; /* (726-298)/1024 */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg">
+            <img src="assets/img/T02m11s0-001.jpg" alt="Description of the image" class="overlay-image" id="imageArea">
+    </div>
+
+</body>
+</html>
