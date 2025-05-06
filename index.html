@@ -29,13 +29,68 @@
             height: 30.67%; /* (645-340)/1024 */
             width: 41.8%; /* (726-298)/1024 */
         }
+
+        .label-image {
+            position: absolute; /* Positions relative to the container */
+            top: 50.6%; /* 600/1024 */
+            left: 16.6%; /* 150/1024 */
+            height: 10%; /* (645-340)/1024 */
+            width: 7%; /* (726-298)/1024 */
+        }
+
+        /* avoid a ghost button shown at the border */
+        button {
+            border: none;
+            cursor: pointer;
+            appearance: none;
+            background-color: inherit;
+        }
+
     </style>
 </head>
 <body>
 
     <div class="bg">
+        <button type=button onclick='test()'>
             <img src="assets/img/T02m11s0-001.jpg" alt="Description of the image" class="overlay-image" id="imageArea">
+        </button>
     </div>
+
+    <script>
+        img = document.getElementById("labelArea");
+
+        function enlargeImg() {
+            img.style.transform = "scale(5.5)";
+            img.style.transition = "transform 0.25s ease";
+        }
+
+        // Function to reset image size
+        function resetImg() {
+            img.style.transform = "scale(1)";
+            img.style.transition = "transform 0.25s ease";
+        }
+
+        function test() {
+            const xxx = new Date()
+            let hour = xxx.getHours()
+            if (hour > 12) hour -= 12
+            if (hour == 0) hour = 12;
+            //let imgfile = 'img' + (hour * 60 + xxx.getMinutes()) + '.jpg'
+            let m = xxx.getMinutes();
+            m = checkTime(m);
+            hour = checkTime(hour);
+
+            //imageArea.src = "assets/img/img_1_big.jpg"
+            //let ic = (xxx.getSeconds() % 6) + 1  //1 to 6
+            imageArea.src = "assets/img/T18m10s1/T18m10s1-" + hour + "-" + m + ".jpg"
+            setTimeout(test, 60000);  //one minute
+        }
+        function checkTime(i) {
+            if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+            return i;
+        }
+
+    </script>
 
 </body>
 </html>
